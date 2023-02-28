@@ -37,5 +37,5 @@ public class BatchTest {
         Assert.assertEquals(jobExecution.getStatus(), BatchStatus.COMPLETED);
 
     }
-
+//csv파일 읽고 -> 데이터베이스에 쓰기 , 청크단위로, 프로세서를 쓰기(원하는 항목 가공), 테스트 코드에서 실행 후 데베에 값이 들어가는 것 까지
 }
