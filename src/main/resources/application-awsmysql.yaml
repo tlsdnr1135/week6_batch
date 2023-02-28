@@ -1,0 +1,21 @@
+server:
+    servlet:
+        encoding:
+            charset: UTF-8
+            force: true
+spring:
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://db11h11m.cwsrqmkqrglk.ap-northeast-2.rds.amazonaws.com:3306/springbatch
+        username: sulbin
+        password: 12341234
+    jpa:
+        show-sql: true
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                format_sql: true
+#    batch:
+#      jdbc:
+#          initialize-schema: embedded
