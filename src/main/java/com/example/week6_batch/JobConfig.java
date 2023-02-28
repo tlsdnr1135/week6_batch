@@ -30,7 +30,7 @@ public class JobConfig {
         return this.jobBuilderFactory.get("batchJob")
                 .start(step1())
                 .next(step2())
-                .incrementer(new RunIdIncrementer())
+                .incrementer(new CustomJobParametersIncrementer())
                 .build();
     }
 

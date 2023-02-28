@@ -23,14 +23,14 @@ public class TaskletEx {
     @Bean
     public Job job() {
         return this.jobBuilderFactory.get("Job")
-                .start(step11())
-                .next(step22())
+                .start(step1())
+                .next(step2())
                 .incrementer(new RunIdIncrementer())
                 .build();
     }
 
-    @Bean
-    public Step step11() {
+    @Bean(name = "step11")
+    public Step step1() {
         return stepBuilderFactory.get("step1")
                 .tasklet(new Tasklet() {
                     @Override
@@ -41,8 +41,8 @@ public class TaskletEx {
                 })
                 .build();
     }
-    @Bean
-    public Step step22() {
+    @Bean(name = "step22")
+    public Step step2() {
         return stepBuilderFactory.get("step2")
                 .tasklet((contribution, chunkContext) -> {
                     System.out.println("step2 has executed");

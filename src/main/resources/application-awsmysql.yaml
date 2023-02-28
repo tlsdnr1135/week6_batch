@@ -16,6 +16,8 @@ spring:
         properties:
             hibernate:
                 format_sql: true
-#    batch:
+    batch:
+        job:
+            names: ${job.name:job}
 #      jdbc:
 #          initialize-schema: embedded
