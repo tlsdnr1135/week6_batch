@@ -3,7 +3,8 @@ package com.example.week6_batch;
 import org.junit.Assert;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.batch.core.*;
+import org.springframework.batch.core.BatchStatus;
+import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.test.JobLauncherTestUtils;
 import org.springframework.batch.test.context.SpringBatchTest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +13,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.text.SimpleDateFormat;
 
 @SpringBatchTest
-@SpringBootTest(classes={ChunkEx.class, TestBatchConfig.class})
-public class BatchTest {
+@SpringBootTest(classes={CSVChunkJobConfig.class, TestBatchConfig.class})
+public class CSVTest {
+
     @Autowired
     private JobLauncherTestUtils jobLauncherTestUtils;
 
-    public static final SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd-hhmmss");
     @Test
     @DisplayName("잡_테스트")
     public void simple_job_test() throws Exception{

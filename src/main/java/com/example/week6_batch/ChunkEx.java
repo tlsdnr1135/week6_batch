@@ -5,21 +5,19 @@ import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
-import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.support.ListItemReader;
 import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.List;
 
 @Configuration
 @RequiredArgsConstructor
-public class JobConfig {
+public class ChunkEx {
 
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
@@ -34,7 +32,7 @@ public class JobConfig {
                 .build();
     }
 
-    @Bean
+    @Bean(name = "step111")
     public Step step1() {
         return stepBuilderFactory.get("step1")
                 .<String, String>chunk(2)
