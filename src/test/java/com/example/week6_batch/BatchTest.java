@@ -1,5 +1,7 @@
 package com.example.week6_batch;
 
+import com.example.week6_batch.job.ChunkEx;
+import com.example.week6_batch.jobparameter.CustomJobParametersIncrementer;
 import org.junit.Assert;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

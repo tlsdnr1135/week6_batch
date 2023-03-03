@@ -1,4 +1,4 @@
-package com.example.week6_batch;
+package com.example.week6_batch.jobparameter;
 
 import io.micrometer.core.lang.Nullable;
 import org.springframework.batch.core.JobParameters;

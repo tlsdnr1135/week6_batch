@@ -14,10 +14,10 @@ public class CustomerFiledSetMapper implements FieldSetMapper<CsvEntity> {
     @Override
     public CsvEntity mapFieldSet(FieldSet fieldSet) throws BindException {
         if(fieldSet == null){
-            System.out.println("파일에 널");
+            System.out.println("file is null");
             return null;
         }
-        System.out.println(fieldSet.getFieldCount());
+
         CsvEntity csvDto = CsvEntity.builder()
                 .code(fieldSet.readString(0))
                 .codeName(fieldSet.readString(1))
@@ -36,8 +36,6 @@ public class CustomerFiledSetMapper implements FieldSetMapper<CsvEntity> {
                 .date(fieldSet.readString(14))
                 .showCount(fieldSet.readString(15))
                 .build();
-        System.out.print(csvDto.getCode()+ " :  ");
-        System.out.println(csvDto.getShowCount());
         return csvDto;
     }
 }

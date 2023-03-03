@@ -26,16 +26,15 @@ public class CsvEntity {
     private String device;
     private String channel;
     private String portal;
-    private String name;
+    private String name; //상품명
     private String brand;
     private String brandNumber;
     private String team;
-    private String keyword;
+    private String keyword; //키워드
     private String date;
     private String showCount;
 
     @Builder
-
     public CsvEntity(String code, String codeName, String costResource, String adVariable, String campaign, String downCampaign, String device, String channel, String portal, String name, String brand, String brandNumber, String team, String keyword, String date, String showCount) {
         this.code = code;
         this.codeName = codeName;

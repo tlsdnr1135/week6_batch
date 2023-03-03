@@ -1,5 +1,7 @@
 package com.example.week6_batch;
 
+import com.example.week6_batch.job.CSVChunkJobConfig;
+import com.example.week6_batch.jobparameter.CustomJobParametersIncrementer;
 import org.junit.Assert;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -9,8 +11,6 @@ import org.springframework.batch.test.JobLauncherTestUtils;
 import org.springframework.batch.test.context.SpringBatchTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.text.SimpleDateFormat;
 
 @SpringBatchTest
 @SpringBootTest(classes={CSVChunkJobConfig.class, TestBatchConfig.class})

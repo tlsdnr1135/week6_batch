@@ -1,5 +1,6 @@
-package com.example.week6_batch;
+package com.example.week6_batch.job;
 
+import com.example.week6_batch.jobparameter.CustomJobParametersIncrementer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
