@@ -15,8 +15,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class JobRunner implements ApplicationRunner {
 
-    @Autowired
-    private JobLauncher jobLauncher;
+    private final JobLauncher jobLauncher;
 
 //    @Autowired
 //    private Job job;
@@ -28,7 +27,7 @@ public class JobRunner implements ApplicationRunner {
 //        format.format(new Date());
 //        Date  date = new Date();
         //TODO 물어보기 데이트형식으로 어캐하나?
-        JobParameters jobParameters = new JobParametersBuilder().addString("date","20220515").toJobParameters();
+        JobParameters jobParameters = new JobParametersBuilder().addString("date","20220511").toJobParameters();
         jobLauncher.run(csvChunkJobConfig.CSVJob(),jobParameters);
     }
 }

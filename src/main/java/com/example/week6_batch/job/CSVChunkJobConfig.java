@@ -2,6 +2,9 @@ package com.example.week6_batch.job;
 
 import com.example.week6_batch.domain.CsvEntity;
 import com.example.week6_batch.domain.TestCSVEntity;
+import com.example.week6_batch.jobparameter.CustomJobParametersIncrementer;
+import com.example.week6_batch.listener.CsvWriteListener;
+import com.example.week6_batch.listener.ScvJobListener;
 import com.example.week6_batch.mapper.CustomerFiledSetMapper;
 import com.example.week6_batch.mapper.DefaultLineMapper;
 import com.example.week6_batch.process.CsvProcesser;
@@ -32,12 +35,14 @@ public class CSVChunkJobConfig {
     private final StepBuilderFactory stepBuilderFactory;
     private final DataSource dataSource; // DataSource DI
     private final CsvProcesser csvProcesser;
+    private final CsvWriteListener csvWriteListener;
+    private final ScvJobListener csvJobListenerJob;
 
     @Bean
     public Job CSVJob(){
         return this.jobBuilderFactory.get("csvJob")
                 .start(step1())
-//                .incrementer(new CustomJobParametersIncrementer())
+                .listener(csvJobListenerJob)
                 .build();
     }
 
@@ -45,10 +50,11 @@ public class CSVChunkJobConfig {
     @Bean
     public Step step1() {
         return stepBuilderFactory.get("step1")
-                .<CsvEntity, CsvEntity>chunk(10)
+                .<CsvEntity, CsvEntity>chunk(30)
                 .reader(itemReader())
                 .processor(csvProcesser)
                 .writer(itemWriter())
+                .listener(csvWriteListener)
                 .build();
     }
 
@@ -62,6 +68,7 @@ public class CSVChunkJobConfig {
     }
 
     //TODO 시스템 지우기, 잡 파라미터 받아오기, 프로세서 빼기, 매퍼 다른 방법으로
+    //TODO 합계 구하기, Autowired 바꾸기
 //    @Bean
 //    public ItemReader itemReader(){
 //        FlatFileItemReader<CsvEntity> itemReader = new FlatFileItemReader<>();

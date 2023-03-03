@@ -17,7 +17,7 @@ public class CsvProcesser implements ItemProcessor<CsvEntity, CsvEntity> {
 
     @Override
     public CsvEntity process( CsvEntity item) throws Exception {
-        System.out.println("item : "+ item.getShowCount());
+//        System.out.println("item : "+ item.getShowCount());
         Long num = Long.parseLong(item.getShowCount());
         if(!item.getDate().equals(date)){
             return null;
