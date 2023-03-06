@@ -18,6 +18,7 @@ public class ScvJobListener implements JobExecutionListener {
 
     @Override
     public void afterJob(JobExecution jobExecution) {
+        //잡 컨텍스트에다 값 넣기.
         System.out.println("sum : " + sum);
         System.out.println("afterJobafterJobafterJobafterJobafterJobafterJobafterJobafterJobafterJob");
     }
